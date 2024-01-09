@@ -16,8 +16,9 @@ public class CityServiceImpl implements CityService{
     }
 
     @Override
-    public City create(City country) {
-        return null;
+    public City create(City city) {
+        cityRepository.save(city);
+        return city;
     }
 
     @Override
@@ -31,12 +32,17 @@ public class CityServiceImpl implements CityService{
     }
 
     @Override
-    public City update(City countryModified) {
+    public City update(City cityModified) {
         return null;
     }
 
     @Override
     public boolean delete(Long id) {
-        return false;
+        try{
+            cityRepository.deleteById(id);
+            return true;
+        }catch (Exception error){
+            return false;
+        }
     }
 }
