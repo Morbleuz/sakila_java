@@ -8,6 +8,8 @@ public interface CityService {
     City create(City country);
     City read(Long id);
 
+    List<City> readExpression(String exp);
+
     List<City> readAll();
 
     City update(City countryModified);

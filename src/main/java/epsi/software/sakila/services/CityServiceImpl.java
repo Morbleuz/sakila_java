@@ -2,10 +2,10 @@ package epsi.software.sakila.services;
 
 import epsi.software.sakila.entities.City;
 import epsi.software.sakila.repositories.CityRepository;
-import epsi.software.sakila.repositories.CountryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CityServiceImpl implements CityService{
@@ -24,6 +24,11 @@ public class CityServiceImpl implements CityService{
     @Override
     public City read(Long id) {
         return this.cityRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<City> readExpression(String exp) {
+        return this.cityRepository.findAll().stream().filter(city -> city.getCity().contains(exp)).collect(Collectors.toList());
     }
 
     @Override

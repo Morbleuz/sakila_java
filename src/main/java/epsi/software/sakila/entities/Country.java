@@ -1,5 +1,6 @@
 package epsi.software.sakila.entities;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
